@@ -1,48 +1,73 @@
----
-layout: page
-title: Home
-subtitle: Stuffs I write about
-desc: Stuffs I write about
----
-{% if paginator.page == 1 %}
-  {% for post in site.posts limit: 2 %}
-<link rel="prerender" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
-  {% endfor %}
-{% endif %}
+<!doctype html>
+<html>
 
-<ul class="post-list">
-  {% for post in paginator.posts %}
-  <li class="post">
-    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
-      <h4 class="post-title">{{ post.title }}</h4>
-      <time class="post-date" datetime="{{ post.date }}">
-      {% assign d = post.date | date: "%-d" %}
-      {% assign m = post.date | date: "%B" %}
-      {% case m %}
-        {% when 'April' or 'May' or 'June' or 'July' %}{{ m }}
-        {% when 'September' %}Sept.
-        {% else %}{{ post.date | date: "%b" }}.
-        {% endcase %}
-      {% case d %}
-        {% when '1' or '21' or '31' %}{{ d }}st{% when '2' or '22' %}{{ d }}nd{% when '3' or '23' %}{{ d }}rd{% else %}{{ d }}th{% endcase %},
-      {{ post.date | date: "%Y" }}
-      </time>
-      <p class="post-desc">{% if post.desc %}{{ post.desc }}{% else %}{{ post.excerpt }}{% endif %}</p>
-    </a>
-  </li>
-  {% endfor %}
-</ul>
-<!-- post-list -->
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Longxing Tan">
+    <meta name="description" content="Personal website">
 
-<ol class="pager">
-  {% if paginator.previous_page %}
-  <li class="pager-prev">
-    <a href="{{ paginator.previous_page_path }}">Previous</a>
-  </li>
-  {% endif %}
-  {% if paginator.next_page %}
-  <li class="pager-next">
-    <a href="{{ paginator.next_page_path }}">Next</a>
-  </li>
-  {% endif %}
-</ol>
+    <title>Longxing</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css">
+
+    <link rel="icon" type="image/png" href="/static/pictures/dog.jpeg">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/button.css">
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/static/js/webfont.js"></script>
+    <script src="/static/js/snap.svg-min.js"></script>
+    <script src="/static/js/underscore-min.js"></script>
+    <script src="/static/js/sequence-diagram-min.js"></script>
+    
+</head>
+<body>
+    <nav class="navbar">
+      <div class="container">      
+        <div style="float:right;">
+          <ul style="list-style:none;display:flex;">
+            <a href="/" class="left"><li class="link-list">Blogs</li></a>
+            <a href="/about" class="left"><li class="link-list">About</li></a>   
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container" style="padding-bottom:100px;">
+        <br>
+        <main id="body-fade">
+            
+  <h3 class="post-title"><b>日志</b></h3>
+
+  
+    <div style="padding-bottom:1.5em;">
+      <a style="color:#0f1218;font-size:large;" href="/2021-08-07%20%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
+        <b>线性回归</b>
+      </a><br>
+      2021-08-07 | 由浅到深的线性回归
+    </div>
+  
+    <div style="padding-bottom:1.5em;">
+      <a style="color:#0f1218;font-size:large;" href="/2021-08-01%E9%9A%8F%E7%AC%94/">
+        <b>2021随笔-彼岸</b>
+      </a><br>
+      2021-08-01 | 一年一度的简单随笔
+    </div>
+  
+
+
+        </main>
+    </div>
+    <nav class="navfoot">
+      <div style="text-align:center;">
+        <font color="#080808">&copy; 2021 |</font> 
+        &thinsp; <a href="https://www.linkedin.com/in/longxing-tan-360270a2/" class="link-fa"><i class="fa fa-linkedin fa-lg"></i></a>
+        &thinsp; <a href="https://github.com/LongxingTan" class="link-fa"><i class="fa fa-github fa-lg"></i></a>
+        &thinsp; <a href="../static/pictures/wechat.jpg" class="link-fa"><i class="fa fa-wechat fa-lg"></i></a>
+        &thinsp; <a href="mailto:tanlongxing888@163.com" class="link-fa"><i class="fa fa-envelope fa-lg"></i></a>
+      </div>
+    </nav>
+</body>
+
+</html>
